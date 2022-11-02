@@ -3,9 +3,10 @@ import urllib.request
 from urllib import request, parse
 import time  # 时间函数库，包含休眠函数sleep()
 
-url = 'https://blog.csdn.net/zhiboqingyun/article/details/109498623'  # 希望刷阅读量的文章的URL
+url = 'https://blog.csdn.net/steamPlayGame/article/details/124754784'  # 希望刷阅读量的文章的URL
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'  # 伪装成Chrome浏览器
-refererData = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=csdn%20%E6%80%9D%E6%83%B3%E7%9A%84%E9%AB%98%E5%BA%A6%20csdnzouqi&oq=csdn%20%E6%80%9D%E6%83%B3%E7%9A%84%E9%AB%98%E5%BA%A6&rsv_pq=fe7241c2000121eb&rsv_t=0dfaTIzsy%2BB%2Bh4tkKd6GtRbwj3Cp5KVva8QYLdRbzIz1CCeC1tOLcNDWcO8&rqlang=cn&rsv_enter=1&rsv_sug3=11&rsv_sug2=0&inputT=3473&rsv_sug4=3753'  # 伪装成是从baidu.com搜索到的文章
+# 伪装成是从baidu.com搜索到的文章
+refererData = 'https://www.baidu.com/link?url=JwfgC0cwAEHDy_ovXfVzyPdJGGP_ParKF8mdPFog7B-upSIz2aOCq3BF9A3pqRnGfki8gWPVddhgamBxp-CgJWN9xPK1yA1urhDzBRARs4e&wd=&eqid=9f2d45fa0010c1df0000000562ca86c2'
 dict = {
     'name': 'Germey'
 }
