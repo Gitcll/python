@@ -1,0 +1,19 @@
+from pyjsparser import parse
+from com.cll.io.FileIO import *
+import json
+
+#读取js文件 start
+fileDirName = "D:\sql"
+arrayDate = []
+arrayDate = get_fileName(fileDirName, ".js")
+json_data_map = ''
+for jsFile in arrayDate:
+    with open(jsFile, 'r', encoding='utf-8') as f:
+        json_data_map = f.read()
+#读取js文件 end
+
+#解析js文件 start
+tree = parse(json_data_map)
+print(json.dumps(tree, indent=4))
+print(tree)
+#解析js文件 end
