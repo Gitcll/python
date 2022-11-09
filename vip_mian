@@ -20,63 +20,11 @@ def buttonFuntion():
     elif num_int_va_ == 4:
         link = 'https://jx.qqwtt.com/?url=' + inputString_
     elif num_int_va_ == 5:
-        link = ''
+        link = 'https://www.ckplayer.vip/jiexi/?url=' + inputString_
     elif num_int_va_ == 6:
-        link = ''
-    elif num_int_va_ == 7:
-        link = ''
-    elif num_int_va_ == 8:
-        link = "https://api.ldjx.cc/1.php?vid=" + inputString_
-    elif num_int_va_ == 9:
-        link = "https://api.leduotv.com/wp-api/ifrgf.php?vid=" + inputString_
-    elif num_int_va_ == 10:
-        link = "https://jsap.attakids.com/?url=" + inputString_
-    elif num_int_va_ == 11:
-        link = "https://jx.618g.com/?url=" + inputString_
-    elif num_int_va_ == 12:
-        link = "https://jx.ap2p.cn/?url=" + inputString_
-    elif num_int_va_ == 13:
-        link = "https://jx.iztyy.com/svip/?url=" + inputString_
-    elif num_int_va_ == 14:
-        link = "https://jx.m3u8.tv/jiexi/?url=" + inputString_
-    elif num_int_va_ == 15:
-        link = "https://jx.ppflv.com/?url=" + inputString_
-    elif num_int_va_ == 16:
-        link = "https://jx5.178du.com/p1/?url=" + inputString_
-    elif num_int_va_ == 17:
-        link = "https://z1.m1907.cn/?jx=" + inputString_
-    elif num_int_va_ == 18:
-        link = "https://jx.xmflv.com/?url=" + inputString_
-    elif num_int_va_ == 2:
-        link = "https://vip.bljiex.com/?v=" + inputString_
-    elif num_int_va_ == 19:
-        link = "https://www.1717yun.com/jiexi/?url=" + inputString_
-    elif num_int_va_ == 20:
-        link = "https://z1.m1907.cn/?jx=" + inputString_
-    elif num_int_va_ == 21:
-        link = "https://www.administratorw.com/admin.php?url=" + inputString_
-    elif num_int_va_ == 22:
-        link = "https://www.administratorw.com/video.php?url=" + inputString_
-    elif num_int_va_ == 23:
-        link = "https://www.xymav.com/?url=" + inputString_
-    elif num_int_va_ == 24:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 25:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 26:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 27:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 28:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 29:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 30:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
-    elif num_int_va_ == 31:
-        link = "https://www.ckplayer.vip/jiexi/?url=" + inputString_
+        link = '' + inputString_
     else:
-        link = ""
+        link = "" + inputString_
     webbrowser.open(link)
 
 root = tk.Tk()
@@ -85,9 +33,9 @@ root.title("vip视频解析「公众号：资源共享科技」")
 #设置小图标
 root.iconbitmap('vip.ico')
 #设置窗口大小,窗口位置
-root.geometry('1150x600+400+200')
+root.geometry('1150x640+400+200')
 #设置head图片
-image = tk.PhotoImage(file='vip_s.png')
+image = tk.PhotoImage(file='image/vip_s.png')
 
 tk.Label(root, image=image).pack()
 
@@ -107,6 +55,12 @@ radiobutton = tk.Radiobutton(choose_frame, text='③号通道「稳定」', font
                              variable=num_int_va, value=3).pack(side=tk.LEFT)
 radiobutton = tk.Radiobutton(choose_frame, text='④号通道「稳定」', font=('黑体', 12), padx='5', pady='2',
                              variable=num_int_va, value=4).pack(side=tk.LEFT)
+radiobutton = tk.Radiobutton(choose_frame, text='⑤号通道「稳定」', font=('黑体', 12), padx='5', pady='2',
+                             variable=num_int_va, value=5).pack(side=tk.LEFT)
+# radiobutton = tk.Radiobutton(choose_frame, text='⑥号通道「稳定」', font=('黑体', 12), padx='5', pady='2',
+#                              variable=num_int_va, value=6).pack(side=tk.LEFT)
+# radiobutton = tk.Radiobutton(choose_frame, text='⑦号通道「稳定」', font=('黑体', 12), padx='5', pady='2',
+#                              variable=num_int_va, value=7).pack(side=tk.LEFT)
 
 input_frame = tk.LabelFrame(root)
 input_frame.pack(fill='both', padx='5', pady='5', ipadx='5', ipady='5')
@@ -116,7 +70,108 @@ tk.Entry(input_frame, textvariable=inputString, width='200', relief='flat', font
 
 #relief='flat'设置平滑
 button = tk.Button(root, command=buttonFuntion,
-                   text='Go-点击在线解析视频', font=('黑体', 12), background='#439d44', wraplength='200', relief='flat')
+                   text='Go-点击在线解析视频', font=('黑体', 12), background='#5cb85c', wraplength='200', relief='flat')
+button.config(fg='white')
 button.pack(fill='both', padx='8', pady='2')
+
+################################################
+shipin_frame = tk.LabelFrame(root)
+shipin_frame.pack(fill='both', padx='5', pady='5', ipadx='5', ipady='5')
+def buttonFuntion_LeShi():
+    link = 'http://www.le.com/'
+    webbrowser.open(link)
+
+button_LeShi = tk.Button(shipin_frame, command=buttonFuntion_LeShi,
+                   text='进入乐视视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_LeShi.config(fg='white')
+button_LeShi.pack(padx='8', pady='4', side=tk.LEFT)
+
+def buttonFuntion_AiQiYi():
+    link = 'https://www.iqiyi.com/'
+    webbrowser.open(link)
+
+button_AiQiYi = tk.Button(shipin_frame, command=buttonFuntion_AiQiYi,
+                   text='进入爱艺视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_AiQiYi.config(fg='white')
+button_AiQiYi.pack(padx='8', pady='4', side=tk.LEFT)
+
+def buttonFuntion_TengXun():
+    link = 'https://v.qq.com/'
+    webbrowser.open(link)
+
+button_TengXun = tk.Button(shipin_frame, command=buttonFuntion_TengXun,
+                   text='进入腾讯视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_TengXun.config(fg='white')
+button_TengXun.pack(padx='8', pady='4', side=tk.LEFT)
+
+def buttonFuntion_YouKu():
+    link = 'https://www.youku.com/'
+    webbrowser.open(link)
+
+button_YouKu = tk.Button(shipin_frame, command=buttonFuntion_YouKu,
+                   text='进入优酷视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_YouKu.config(fg='white')
+button_YouKu.pack(padx='8', pady='4', side=tk.LEFT)
+
+def buttonFuntion_MangGuo():
+    link = 'https://www.mgtv.com/'
+    webbrowser.open(link)
+
+button_MangGuo = tk.Button(shipin_frame, command=buttonFuntion_MangGuo,
+                   text='进入芒果视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_MangGuo.config(fg='white')
+button_MangGuo.pack(padx='8', pady='4', side=tk.LEFT)
+
+def buttonFuntion_Souhu():
+    link = 'https://tv.sohu.com/'
+    webbrowser.open(link)
+
+button_Souhu = tk.Button(shipin_frame, command=buttonFuntion_Souhu,
+                   text='进入搜狐视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_Souhu.config(fg='white')
+button_Souhu.pack(padx='8', pady='4', side=tk.LEFT)
+
+def buttonFuntion_TuDou():
+    link = 'https://www.tudou.com/'
+    webbrowser.open(link)
+
+button_TuDou = tk.Button(shipin_frame, command=buttonFuntion_TuDou,
+                   text='进入土豆视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_TuDou.config(fg='white')
+button_TuDou.pack(padx='8', pady='4', side=tk.LEFT)
+
+
+def buttonFuntion_Pptv():
+    link = 'https://www.pptv.com/'
+    webbrowser.open(link)
+
+button_Pptv = tk.Button(shipin_frame, command=buttonFuntion_Pptv,
+                   text='进入PPTV视频', font=('黑体', 12), background='#5cb85c', wraplength='125', relief='flat')
+button_Pptv.config(fg='white')
+button_Pptv.pack(padx='8', pady='4', side=tk.LEFT)
+################################################
+
+#设置公众号图片
+image_gongzongha_1 = tk.PhotoImage(file='image/gongzonghao_1.png')
+tk.Label(root, image=image_gongzongha_1).pack(side=tk.LEFT)
+
+#设置公众号图片
+# image_gongzongha_2 = tk.PhotoImage(file='gongzonghao_2.png')
+# tk.Label(root, image=image_gongzongha_2).pack(side=tk.LEFT)
+
+#设置fram框
+text_frame = tk.LabelFrame(root, borderwidth='1', width='75', height='20')
+#ipadx内边距 pady外边距 fill填充X
+text_frame.pack(padx='5', pady='5', ipadx='5', ipady='5', side=tk.LEFT)
+tk.Label(text_frame, text=''
+'1.进入各大视频网站，找到想要观看的VIP视频vip会员，\r\n\
+然后复制链接（浏览器上的视频地址）\r\n\
+2.将复制的链接粘贴到播放地址，并点击开始解析\r\n\
+3.等待解析完成，即可免费观看VIP视频vip会员', background='#f0f0f0', font=('黑体', 8), padx='8', pady='2', width='75', height='20').pack(side=tk.LEFT)
+
+#设置支付宝红包
+image_zhifubaohongbao = tk.PhotoImage(file='image/zhifubaohongbao_2.png')
+tk.Label(root, image=image_zhifubaohongbao).pack(side=tk.RIGHT)
+
 root.mainloop()
 
