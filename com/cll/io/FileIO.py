@@ -56,3 +56,18 @@ def get_fileName(path, fileNameSuffix):
     else:
         print("该文件路径不存在")
     return fileNameArr
+
+fileDirectoryArr = []
+def get_directory(path):
+    if os.path.exists(path):
+        if os.path.isdir(path):
+            sub_file = os.listdir(path)
+            for file_name in sub_file:
+                join_path = os.path.join(path, file_name)
+                if os.path.isdir(join_path):
+                    fileDirectoryArr.append(join_path)
+        else:
+            print("我要操作文件")
+    else:
+        print("该文件路径不存在")
+    return fileDirectoryArr

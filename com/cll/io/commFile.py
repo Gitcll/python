@@ -1,11 +1,18 @@
 import os
-
+import chardet
 
 #读取数据，存放入数组
 def read_file_getArrayData(file):
-    with open(file, 'r', encoding='utf-8') as f:
+    with open(file, 'r', encoding=get_encoding(file)) as f:
         readlines = f.readlines()
         return readlines
+
+# 获取文件编码类型
+def get_encoding(file):
+    # 二进制方式读取，获取字节数据，检测类型
+    with open(file, 'rb') as f:
+        return chardet.detect(f.read())['encoding']
+
 
 #获取文件夹下所有的文件
 # 返回路径下指定fileName
