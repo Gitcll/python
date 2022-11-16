@@ -4,7 +4,7 @@ def xw_toExcel(data, fileName, sheetName):
     workbook = xw.Workbook(fileName)
     worksheet1 = workbook.add_worksheet(sheetName)
     worksheet1.activate()
-    title = ['项目名', '包名', '覆盖率']
+    title = ['プロジェクト名', 'Javaファイル', 'カバー率']
     worksheet1.write_row('A1', title)
     i = 2
     for j in range(len(data)):
