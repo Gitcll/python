@@ -8,11 +8,13 @@ import pandas as pd
 
 path = "C:\\Users\\30270\\HBuilderProjects"
 fileDirectoryArr = get_directory(path)
-print(fileNameArr)
+e = 0
 for fileDirectory in fileDirectoryArr:
     fileNameArr = get_fileName(fileDirectory, ".html")
     print(fileNameArr)
     w = 0
+    writer = pd.ExcelWriter("excel 样例" + str(e) + ".xlsx", mode='w', engine='openpyxl')
+    e += 1
     for file in fileNameArr:
         if str(file).endswith("index.html"):
             print(file)
@@ -20,7 +22,9 @@ for fileDirectory in fileDirectoryArr:
             child_page = BeautifulSoup(str(date), "html.parser")
             tbody = child_page.find("tbody")
             if tbody != None:
-                dateArr11 = []
+                dateArr11 = {}
+                dateArr11["biaotou"] = ['プロジェクト名', 'Javaファイル', 'カバー率']
+                i = 0
                 for tbodyChildren in tbody.select('tr'):
                     print(tbodyChildren)
                     pattern = re.compile(r'(?<=>)(\d+%)(?=<)')
@@ -31,18 +35,17 @@ for fileDirectory in fileDirectoryArr:
                         dateArr.append(child_page.select('#breadcrumb a.el_bundle')[0].string)
                         dateArr.append(child_page.title.string + '.' + tbodyChildren.td.a.string)
                         dateArr.append(res.group())
-                        dateArr11.append(dateArr)
+                        dateArr11[child_page.title.string + '.' + tbodyChildren.td.a.string + str(i)] = dateArr
+                        i += 1
                 print(dateArr11)
                 fileName = '测试.xlsx'
-                xw_toExcel(dateArr11, fileName, str(tbody.name)+str(w))
-                w += 1
-                p = 2;
-                for date_ in dateArr11:
-                    data = pd.DataFrame(date_).T
-                    writer = pd.ExcelWriter("excel 样例.xlsx", mode='a', engine='openpyxl')
-                    data.to_excel(writer, sheet_name="这是第1个sheet",index=False)
+
+                data = pd.DataFrame(dateArr11).T
+
+                data.to_excel(writer, sheet_name="这是第" + str(w) + "个sheet",index=False)
                 writer.save()
-                writer.close()
+                w += 1
+    writer.close()
 
 
 
