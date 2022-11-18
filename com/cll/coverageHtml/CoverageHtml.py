@@ -83,7 +83,7 @@ def buttonFuntion():
 #画面UI
 root = tk.Tk()
 
-root.title("vip视频解析「公众号：资源共享科技」")
+root.title("统计覆盖率「公众号：资源共享科技」")
 #设置小图标
 root.iconbitmap('vip.ico')
 #设置窗口大小,窗口位置
