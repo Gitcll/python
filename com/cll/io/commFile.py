@@ -32,7 +32,6 @@ def get_fileName(path, fileNameSuffix):
                 join_path = os.path.join(path, file_name)
                 if os.path.isfile(join_path):
                     if os.path.splitext(join_path)[-1] == fileNameSuffix:
-                        print(join_path)
                         fileNameArr.append(join_path)
                 elif os.path.isdir(join_path):
                     get_fileName(join_path, fileNameSuffix)
