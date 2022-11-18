@@ -27,6 +27,7 @@ def buttonFuntion():
                 break
         if isWriterExcel is True:
             #创建以第一层级文件夹Excel文件
+            #mode='a'追加数据,mode='w'覆盖文件数据
             writer = pd.ExcelWriter(excelName + ".xlsx", mode='w', engine='openpyxl')
         for file in fileNameArr:
             if str(file).endswith("index.html"):
