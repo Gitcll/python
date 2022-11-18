@@ -62,12 +62,14 @@ radiobutton = tk.Radiobutton(choose_frame, text='⑤号通道「稳定」', font
 # radiobutton = tk.Radiobutton(choose_frame, text='⑦号通道「稳定」', font=('黑体', 12), padx='5', pady='2',
 #                              variable=num_int_va, value=7).pack(side=tk.LEFT)
 
+#设置输入框
 input_frame = tk.LabelFrame(root)
 input_frame.pack(fill='both', padx='5', pady='5', ipadx='5', ipady='5')
 tk.Label(input_frame, text='播放地址:', background='#f0f0f0', font=('黑体', 20), padx='8', pady='2',).pack(side=tk.LEFT)
 inputString = tk.StringVar()
 tk.Entry(input_frame, textvariable=inputString, width='200', relief='flat', font=('黑体', 12)) .pack(side=tk.LEFT, fill='both')
 
+#设置按钮
 #relief='flat'设置平滑
 button = tk.Button(root, command=buttonFuntion,
                    text='Go-点击在线解析视频', font=('黑体', 12), background='#5cb85c', wraplength='200', relief='flat')
