@@ -12,8 +12,9 @@ def buttonFuntion():
     path = inputString.get()
     #查找当前文件下的第一层级文件夹
     fileDirectoryArr = get_directory(path)
+    isFirstConvter = True
     if type(fileDirectoryArr) is str:
-        tk.messagebox.showerror(title='出错了', message=fileDirectoryArr)
+        tk.messagebox.showerror(title='出错', message=fileDirectoryArr)
         return
     for fileDirectory in fileDirectoryArr:
         #初始化
@@ -23,8 +24,14 @@ def buttonFuntion():
         #遍历当前文件下的第一层级文件夹下所有的html
         fileNameArr = get_fileName(fileDirectory, ".html")
         if type(fileNameArr) is str:
-            tk.messagebox.showerror(title='出错了', message=fileNameArr)
+            tk.messagebox.showerror(title='出错', message=fileNameArr)
             return
+        if isFirstConvter is True:
+            result = tkinter.messagebox.askquestion(title='标题', message='你确定要进行转换')
+            if result == 'no':
+                result = tkinter.messagebox.showwarning(title='警号', message='你取消了转换操作')
+                return
+            isFirstConvter = False
         excelName = fileDirectory[str(fileDirectory).rindex("\\")+1:]
         #创建excel的flg
         isWriterExcel = False
