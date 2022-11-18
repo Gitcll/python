@@ -4,12 +4,17 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import tkinter as tk
+import tkinter.messagebox
+
 #统计jcoco覆盖率的整合工具
 def buttonFuntion():
     #path = "C:\\Users\\30270\\HBuilderProjects"
     path = inputString.get()
     #查找当前文件下的第一层级文件夹
     fileDirectoryArr = get_directory(path)
+    if type(fileDirectoryArr) is str:
+        tk.messagebox.showerror(title='出错了', message=fileDirectoryArr)
+        return
     for fileDirectory in fileDirectoryArr:
         #初始化
         #fileNameArr.clear()
@@ -17,6 +22,9 @@ def buttonFuntion():
         w = 0
         #遍历当前文件下的第一层级文件夹下所有的html
         fileNameArr = get_fileName(fileDirectory, ".html")
+        if type(fileNameArr) is str:
+            tk.messagebox.showerror(title='出错了', message=fileNameArr)
+            return
         excelName = fileDirectory[str(fileDirectory).rindex("\\")+1:]
         #创建excel的flg
         isWriterExcel = False
@@ -79,7 +87,7 @@ def buttonFuntion():
             writer.save()
             writer.close()
             fileNameArr.clear()
-
+    tk.messagebox.showinfo(title='信息提示！', message='转换完成!')
 
 #画面UI
 root = tk.Tk()
