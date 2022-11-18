@@ -10,13 +10,21 @@ fileDirectoryArr = get_directory(path)
 for fileDirectory in fileDirectoryArr:
     #初始化
     fileNameArr.clear()
-    #遍历当前文件下的第一层级文件夹下所有的html
-    fileNameArr = get_fileName(fileDirectory, ".html")
     #w = 0代表生成sheet顺序
     w = 0
+    #遍历当前文件下的第一层级文件夹下所有的html
+    fileNameArr = get_fileName(fileDirectory, ".html")
     excelName = fileDirectory[str(fileDirectory).rindex("\\")+1:]
-    #创建以第一层级文件夹Excel文件
-    writer = pd.ExcelWriter(excelName + ".xlsx", mode='w', engine='openpyxl')
+    #创建excel的flg
+    isWriterExcel = False
+    #判断当前文件夹是否存在对象,存在isWriterExcel = True,并创建excel
+    for file in fileNameArr:
+        if str(file).endswith("index.html"):
+            isWriterExcel = True
+            break
+    if isWriterExcel is True:
+        #创建以第一层级文件夹Excel文件
+        writer = pd.ExcelWriter(excelName + ".xlsx", mode='w', engine='openpyxl')
     for file in fileNameArr:
         if str(file).endswith("index.html"):
             #读取index.html文件,以数组的形式返回
@@ -62,9 +70,11 @@ for fileDirectory in fileDirectoryArr:
                 #写入数据
                 data.to_excel(writer, sheet_name=sheetName + str(w),index=False)
                 w += 1
-    #保存excel,并关闭
-    writer.save()
-    writer.close()
+    if isWriterExcel is True:
+        #保存excel,并关闭
+        writer.save()
+        writer.close()
+        isWriterExcel = False
 
 
 
