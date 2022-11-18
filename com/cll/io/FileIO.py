@@ -1,5 +1,6 @@
 import os
 
+errorMessage = ""
 #读取数据，存放入元组
 def read_file_getArrayData(file):
     with open(file, 'r', encoding='utf-8') as f:
@@ -33,7 +34,9 @@ def get_file(path, fileNameSuffix):
         else:
             print("我要操作文件")
     else:
+        errorMessage = "该文件路径不存在"
         print("该文件路径不存在")
+        return errorMessage
     return arrayData
 
 #获取文件夹下所有的文件
@@ -54,7 +57,9 @@ def get_fileName(path, fileNameSuffix):
         else:
             print("我要操作文件")
     else:
+        errorMessage = "该文件路径不存在"
         print("该文件路径不存在")
+        return errorMessage
     return fileNameArr
 
 fileDirectoryArr = []
@@ -69,5 +74,7 @@ def get_directory(path):
         else:
             print("我要操作文件")
     else:
+        errorMessage = "该文件路径不存在"
         print("该文件路径不存在")
+        return errorMessage
     return fileDirectoryArr
