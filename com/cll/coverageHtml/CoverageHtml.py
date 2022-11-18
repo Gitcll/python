@@ -13,6 +13,7 @@ def buttonFuntion():
     #查找当前文件下的第一层级文件夹
     fileDirectoryArr = get_directory(path)
     isFirstConvter = True
+    #判断是否输入正确的文件夹路径
     if type(fileDirectoryArr) is str:
         tk.messagebox.showerror(title='出错', message=fileDirectoryArr)
         return
@@ -23,9 +24,11 @@ def buttonFuntion():
         w = 0
         #遍历当前文件下的第一层级文件夹下所有的html
         fileNameArr = get_fileName(fileDirectory, ".html")
+        # 判断是否输入正确的文件夹路径
         if type(fileNameArr) is str:
             tk.messagebox.showerror(title='出错', message=fileNameArr)
             return
+        # 判断是否进行转换
         if isFirstConvter is True:
             result = tkinter.messagebox.askquestion(title='标题', message='你确定要进行转换')
             if result == 'no':
