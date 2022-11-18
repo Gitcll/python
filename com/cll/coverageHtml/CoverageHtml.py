@@ -29,7 +29,7 @@ for fileDirectory in fileDirectoryArr:
                 #初始化字典
                 dateArr11 = {}
                 #设置sheet默认标题行
-                dateArr11["biaotou"] = ['序号', 'プロジェクト名', 'Javaファイル', 'カバー率']
+                dateArr11["biaotou"] = ['序号', '项目名', 'java包名', '覆盖率']
                 #i = 0标记dateArr11中key不能重复
                 i = 0
                 sheetName = ""
