@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import tkinter as tk
-
+#统计jcoco覆盖率的整合工具
 def buttonFuntion():
     #path = "C:\\Users\\30270\\HBuilderProjects"
     path = inputString.get()
