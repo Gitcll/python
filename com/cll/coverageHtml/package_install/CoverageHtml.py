@@ -1,10 +1,70 @@
-from com.cll.io.FileIO import *
-from com.cll.io.commFile import *
+import os
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import tkinter as tk
 import tkinter.messagebox
+
+errorMessage = ""
+fileDirectoryArr = []
+def get_directory(path):
+    if os.path.exists(path):
+        if os.path.isdir(path):
+            sub_file = os.listdir(path)
+            for file_name in sub_file:
+                join_path = os.path.join(path, file_name)
+                if os.path.isdir(join_path):
+                    fileDirectoryArr.append(join_path)
+        else:
+            print("我要操作文件")
+    else:
+        errorMessage = "该文件路径不存在"
+        print("该文件路径不存在")
+        return errorMessage
+    return fileDirectoryArr
+
+#获取文件夹下所有的文件
+# 返回路径下指定fileName
+fileNameArr = []
+def get_fileName(path, fileNameSuffix):
+    try:
+        if os.path.exists(path):
+            if os.path.isdir(path):
+                sub_file = os.listdir(path)
+                for file_name in sub_file:
+                    join_path = os.path.join(path, file_name)
+                    if os.path.isfile(join_path):
+                        if os.path.splitext(join_path)[-1] == fileNameSuffix:
+                            print(join_path)
+                            fileNameArr.append(join_path)
+                    elif os.path.isdir(join_path):
+                        get_fileName(join_path, fileNameSuffix)
+            else:
+                print("我要操作文件")
+        else:
+            errorMessage = "该文件路径不存在"
+            print("该文件路径不存在")
+            return errorMessage
+        return fileNameArr
+    except IOError as e:
+        errorMessage = "该文件路径不存在"
+        print("该文件路径不存在")
+        return errorMessage
+
+#读取数据，存放入元组
+def read_file_getArrayData(file):
+    with open(file, 'r', encoding='utf-8') as f:
+        json_data_map = []
+        json_data_map = f.readlines()
+        json_map = {}
+        count = 0
+        for i in f:
+            str = f.readline()
+            #将结果放入Map中
+            #json_map.setdefault(count,[]).append(str)
+            json_map.setdefault(count, str)
+            count = count + 1
+        return json_data_map
 
 #统计jcoco覆盖率的整合工具
 def buttonFuntion():
@@ -101,20 +161,19 @@ def buttonFuntion():
             #保存excel,并关闭
             writer.save()
             writer.close()
-            fileDirectoryArr.clear()
             fileNameArr.clear()
     tk.messagebox.showinfo(title='信息提示！', message='转换完成!')
 
 #画面UI
 root = tk.Tk()
 
-root.title("统计覆盖率「公众号：资源共享科技」")
+root.title("统计覆盖率")
 #设置小图标
 root.iconbitmap('vip.ico')
 #设置窗口大小,窗口位置
 root.geometry('1150x640+400+200')
 #设置head图片
-image = tk.PhotoImage(file='image/vip_s_1.png')
+image = tk.PhotoImage(file='image/vip_s.png')
 tk.Label(root, image=image).pack()
 
 #设置输入框
