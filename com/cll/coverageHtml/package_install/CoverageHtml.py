@@ -173,7 +173,7 @@ root.iconbitmap('vip.ico')
 #设置窗口大小,窗口位置
 root.geometry('1150x640+400+200')
 #设置head图片
-image = tk.PhotoImage(file='image/vip_s.png')
+image = tk.PhotoImage(file='image/vip_s_1.png')
 tk.Label(root, image=image).pack()
 
 #设置输入框
