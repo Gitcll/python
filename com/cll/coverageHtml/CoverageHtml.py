@@ -73,7 +73,7 @@ def buttonFuntion():
                         #使用正则匹配当前tr标签中存在百分比
                         pattern = re.compile(r'(?<=>)(\d+%)(?=<)')
                         res = pattern.search(str(tbodyChildren))
-                        if res != None:
+                        if res != None & len(child_page.select('#breadcrumb a.el_bundle')) > 0:
                             #初始化,存放数据
                             dateArr = []
                             #添加序列
@@ -90,18 +90,17 @@ def buttonFuntion():
                             #将数据存放入字典
                             dateArr11[child_page.title.string + '.' + tbodyChildren.td.a.string + str(i)] = dateArr
                             i += 1
-                    #dateArr11数据格式, 如: {"col1": [1, 2, 3], "col2": [4, 5, 6], "col3": [7, 8, 9]}
-                    #默认输出为竖向排列
-                    #T代表可以将数据横向排列,输出表格中
-                    data = pd.DataFrame(dateArr11).T
-                    #写入数据
-                    data.to_excel(writer, sheet_name=sheetName + str(w),index=False)
-                    w += 1
+                    if len(sheetName) > 0:
+                        #dateArr11数据格式, 如: {"col1": [1, 2, 3], "col2": [4, 5, 6], "col3": [7, 8, 9]}
+                        #默认输出为竖向排列
+                        #T代表可以将数据横向排列,输出表格中
+                        data = pd.DataFrame(dateArr11).T
+                        #写入数据
+                        data.to_excel(writer, sheet_name=sheetName + str(w),index=False)
+                        w += 1
         if isWriterExcel is True:
             #保存excel,并关闭
-            writer.save()
             writer.close()
-            fileDirectoryArr.clear()
             fileNameArr.clear()
     tk.messagebox.showinfo(title='信息提示！', message='转换完成!')
 
