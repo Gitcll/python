@@ -108,16 +108,15 @@ def buttonFuntion():
             if str(file).endswith("index.html"):
                 isWriterExcel = True
                 break
-        if isWriterExcel is True:
-            #创建以第一层级文件夹Excel文件
-            #mode='a'追加数据,mode='w'覆盖文件数据
-            writer = pd.ExcelWriter(excelName + ".xlsx", mode='w', engine='openpyxl')
-            # 初始化字典
-            dateArr11 = {}
-            sheetName = excelName
-            # 设置sheet默认标题行
-            dateArr11["biaotou"] = ['序号', '项目名', 'java包名', '覆盖率']
-            i = 0
+        #创建以第一层级文件夹Excel文件
+        #mode='a'追加数据,mode='w'覆盖文件数据
+        writer = pd.ExcelWriter(excelName + ".xlsx", mode='w', engine='openpyxl')
+        # 初始化字典
+        dateArr11 = {}
+        sheetName = excelName
+        # 设置sheet默认标题行
+        dateArr11["biaotou"] = ['序号', '项目名', 'java包名', '覆盖率']
+        i = 0
         for file in fileNameArr:
             if str(file).endswith("index.html"):
                 #读取index.html文件,以数组的形式返回
