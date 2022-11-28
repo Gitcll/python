@@ -11,6 +11,7 @@ pyinstaller -F -w vip_mian
 ### 打包单个文件 
 pyinstaller -F -w -i vip.ico vip_mian
 pyinstaller -F -w -i vip.ico CoverageHtml.py
+pyinstaller -F -w -i vip.ico CoverageHtmlSimpleSheet.py
 
 pyinstaller -i D:\Java\python\vip.ico -F -c D:\Java\python\vip_mian
 
